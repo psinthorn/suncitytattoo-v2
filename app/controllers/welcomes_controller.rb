@@ -25,6 +25,7 @@ class WelcomesController < ApplicationController
   # POST /welcomes.json
   def create
     @welcome = Welcome.new(welcome_params)
+    # @welcome.user_id = 1
 
     respond_to do |format|
       if @welcome.save
