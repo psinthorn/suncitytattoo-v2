@@ -1,0 +1,28 @@
+// for custome bootstrap style
+
+@import "bootstrap/dist/css/bootstrap";
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.search-area {
+  padding-top: 50px;
+}
+
+.no-left-padding {
+  padding-left: 0px;
+}
+
+.no-right-padding {
+  padding-left: 0px;
+}
+
+.show-inline-block {
+  display: inline-block;
+}
+
+.notice-box {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
