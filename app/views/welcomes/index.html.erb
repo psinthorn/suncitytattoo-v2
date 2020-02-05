@@ -25,8 +25,11 @@
         <td><%= welcome.status %></td>
         <td><%= welcome.user_id %></td>
         <td><%= link_to 'Show', welcome %></td>
+        <%# <%= current_user.admin unless current_user.admin %>
+        <% if user_signed_in? && current_user && current_user.admin %>
         <td><%= link_to 'Edit', edit_welcome_path(welcome) %></td>
         <td><%= link_to 'Destroy', welcome, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
