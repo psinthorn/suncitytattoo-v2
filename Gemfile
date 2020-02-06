@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem "font-awesome-rails"
+gem 'kaminari'
+gem 'f2_view_tool', '~> 0.1.0'
 
 
 group :development, :test do

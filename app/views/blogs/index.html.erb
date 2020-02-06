@@ -1,10 +1,16 @@
 <div class="mt-5 mb-3">
     <h1 class="featurette-heading mb-5">Blogs</h1>
     <hr>
-    <div class="mx-auto mt-5 mb-5">
+     <div class="mx-auto mt-5 mb-5">
       <%= render "partials/paginate"%>
     </div>
+    <% if @blogs.count > 0 %>
           <%= render @blogs %>
+    <% else %>
+      <div class="h3 text-muted text-center mt-5">Oops! No any blogs post for now we're working on...
+      <p>please visit again</p></div>
+      <p class="text-center mt-5"><%= fa_icon "pencil", style: "font-size: 8rem" %>  </p>
+      <% end %>
       <div class="mx-auto mt-5">
         <%= render "partials/paginate"%>
     </div>

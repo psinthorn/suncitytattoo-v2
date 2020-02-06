@@ -1,29 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<div class="row mx-auto">   
+   <div class="col-sm-12 col-md-8 col-lg-8 md-offset-2">
+   <p>
+      <h2 class="featurette-heading"><%= @blog.title %></h2>  
+      <p><span class="lead text-muted">  <%= @blog.subtitle %> </span> </p>
+          <small>Posted <%= time_ago_in_words(@blog.created_at) %> ago </small>
+    </p>
+      
+  </div>
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @blog.subtitle %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @blog.status %>
-</p>
+  <div class="col-sm-12 col-md-8 col-lg-8 md-offset-2 img-fluid mb-4">  
 
-<p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
-</p>
+       <%# See banner method on blog.rd model %>
+      <%# <%= image_tag @blog.banner unless @blog.banner.nil?  %> 
+      <div class="card">
+      <div style="width: 50%; height: auto">
+          <%= image_tag @blog.image unless @blog.image.nil?  %>
+       </div>
+       </div>
+       <%# Original Image %>
+       <%# <%= image_tag @blog.image unless @blog.image.nil?  %> 
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+
+       
+  </div>
+
+   <div class="col-sm-12 col-md-8 col-lg-8 md-offset-2">
+      <p class="lead">
+          <%= @blog.body %>
+      </p>
+
+      <p>
+      <% if user_signed_in? && current_user == @blog.user  %>
+        <%= link_to 'Back', blogs_path, class: "btn btn-secondary" %>
+        <%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-secondary"%>
+        <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-secondary"%>
+      <% end %>
+      </p>  
+  </div>     
+</div>
+     
+
+
+
+
