@@ -1,4 +1,10 @@
-    <h1 class="featurette-heading text-center mb-5">The Artist</h1>
+    <% if @role == "artist"%>
+    <h1 class="featurette-heading text-center mb-5">The Artist </h1>
+    <% elsif %>
+    <h1 class="featurette-heading text-center mb-5">The Guest Artist </h1>
+    <% elsif  @role == ""%>
+    <h1 class="featurette-heading text-center mb-5">Hey! there are no artist profile for right now. </h1>
+    <% end %>
 
     <% @profiles.each do |profile| %>
         <div class="row mt-5">          
