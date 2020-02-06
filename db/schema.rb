@@ -10,10 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_084937) do
+ActiveRecord::Schema.define(version: 2020_02_06_080218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abouts", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.text "body"
+    t.text "subbody"
+    t.boolean "status", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_abouts_on_user_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.text "body"
+    t.boolean "status", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.string "city"
+    t.string "province"
+    t.string "country"
+    t.string "postcode"
+    t.string "tel"
+    t.string "mobile"
+    t.string "email"
+    t.string "website"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "whatsapp"
+    t.string "line"
+    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "suffix"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "age"
+    t.text "body"
+    t.string "mobile"
+    t.string "email"
+    t.string "website"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "line"
+    t.string "whatsapp"
+    t.string "roles"
+    t.string "nick_name"
+    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,12 +101,28 @@ ActiveRecord::Schema.define(version: 2020_02_05_084937) do
     t.string "subtitle"
     t.string "body"
     t.string "subbody"
-    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.boolean "status"
     t.index ["user_id"], name: "index_welcomes_on_user_id"
   end
 
+  create_table "whies", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.boolean "status", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "faicon"
+    t.index ["user_id"], name: "index_whies_on_user_id"
+  end
+
+  add_foreign_key "abouts", "users"
+  add_foreign_key "blogs", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "welcomes", "users"
+  add_foreign_key "whies", "users"
 end

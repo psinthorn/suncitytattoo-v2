@@ -1,0 +1,36 @@
+
+<div class="col text-center mt-5 mb-5" >
+   <div class="row">
+         <div class="col-md-12 d-flex justify-content-center mb-5 mt-5">
+            <h1 class="featurette-heading ">Why Us?</h1>
+         </div>
+   </div>
+</div>
+<div class="row">
+
+<i class="fas fa-fingerprint"></i>
+
+         <% @whies.each do |why| %>
+
+         <div class="col-sm-6 col-md-3 col-lg-3">
+             <div class="text-center p-4 mt-5">
+                    
+                  <%= fa_icon "#{why.faicon}", style: "font-size: 5.0rem" %>      
+               </div>
+            <div class="card m-1 d-block", style="height: 380px">
+               <div class="card-title text-center pt-4">
+                  <h2><%= why.title %> </h2>
+               </div>
+               <div class="card-body lead text-center">
+                  <%= why.body %>
+               </div>
+            </div>
+            <% if user_signed_in? && current_user %>
+            <div class="text-right">
+               <%= link_to 'Edit', edit_why_path(why), class: "btn btn-secondary" %>
+               <%= link_to 'Destroy', why, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+            </div>
+            <%end%>
+         </div>
+     <% end %>       
+</div>

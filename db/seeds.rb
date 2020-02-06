@@ -9,11 +9,11 @@
 1.times do |welcome| 
     Welcome.create!(
         title: "Welcome to Sun City tattoo.",
-        subtitle: "Koh Samui s finest Tattoo Studio",
-        body: "We follow European standards for hygiene and sterilisation of our equipment and cover all styles that you        may wish for.",
+        subtitle: "Koh Samui’s finest Tattoo Studio",
+        body: "Your holiday tattoo that fits your style and character so much that it will be the only one in the world for you. We offer a range of styles and well as custom designs of your choice. Sun City Tattoo also follows European standards for hygiene and sterilisation of our equipment. Come and visit us and see what we can do for you.",
         subbody: "",
         user_id: 1,
-        status: ""
+        status: true
       
     )
 end
@@ -24,9 +24,10 @@ puts "1 Welcome message seed data is created"
     About.create!(
         title: "About Us",
         subtitle: "Koh Samui s finest Tattoo Studio",
-        body: "Sun City open its doors in August 2007. You can find Sun City in Montien house soo. A stone throw from Chaweng road and Chaweng beach. We have two artists in the studio that cover all styles both machine and bamboo. ",
-        subbody: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from  by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
-        user_id: 1
+        body: "Sun City open its doors in August 2007. You can find Sun City in Montien house soo. A stone throw from Chaweng road and Chaweng beach. We have two artists in the studio that cover all styles both machine and bamboo.",
+        subbody: "",
+        user_id: 1,
+        status: true
     )
 end
 
@@ -62,7 +63,7 @@ puts "1 About seed data is created"
         instagram: "https://www.instagram.com/suncitytattoosamui",
         line: "084 626 0022",
         whatsapp: "084 626 0022",
-        status: "Published",
+        status: true,
         user_id: 1
     )
 end
@@ -85,8 +86,8 @@ puts "1 Contact address record added"
         instagram: "https://www.instagram.com/suncitytattoosamui",
         line: "084 626 0022",
         whatsapp: "084 626 0022",
-        roles: "The Artist",
-        status: "Published",
+        roles: "artist",
+        status: true,
         user_id: 1
     )
 end
@@ -107,11 +108,62 @@ puts "1 artist profile record added"
         instagram: "Instagram",
         whatsapp: "whatsapp",
         line: "Line ID",
-        roles: "Guest Artist",
-        status: "Draft"
+        roles: "guest",
+        user_id: 1,
+        status: true
     )
 end
 
 puts "1 Guest artist profile record added"
+
+1.times do |why|
+    Why.create!(
+        title: "Custom Design Tattoo",
+        body: "We offer unique tattoos and character designs that suit your style. Custom designs available on request.",
+        faicon:"paint-brush",
+        status: true,
+        user_id: 1
+    )
+end
+
+puts "1 Custom Design Tattoo"
+
+1.times do |why|
+    Why.create!(
+        title: "European Standards",
+        body: "Your health and safety is important to us. We keep our machines and equipment very clean and in line with European standards of hygiene and sterilisation.",
+         faicon: "globe",
+        status: true,
+        user_id: 1
+    )
+end
+
+puts "1 European Standards"
+
+1.times do |why|
+    Why.create!(
+        title: "Friends",
+        body: "When you visit us you don’t just leave with a new tattoo, but new friends as well!",
+         faicon: "users",
+        status: true,
+        user_id: 1
+    )
+end
+
+puts "1 Friends"
+
+1.times do |why|
+    Why.create!(
+        title: "Price",
+        body: "We offer reasonable pricing for base artworks, however you’ll be please with our custom design tattoo prices as well.",
+        faicon: "tags",
+        status: true,
+        user_id: 1
+    )
+end
+
+puts "1 Price"
+
+
 
 

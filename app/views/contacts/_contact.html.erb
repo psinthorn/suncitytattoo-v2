@@ -1,0 +1,56 @@
+<div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h1 class="featurette-heading" ><%= contact.title %></h1>
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-9 ">
+            <% if contact.address %>   
+                <%= fa_icon "home", style: "font-size: 1.5rem" %>  <span class="lead"><%= contact.address %> <%= contact.city %> <%= contact.province %> <%= contact.country %> <%= contact.postcode %></span>
+            <% end %>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3 text-left">
+            <% if contact.mobile %>
+                <%= fa_icon "phone", style: "font-size: 1.5rem" %> <span class="lead"> <%= number_to_phone(contact.mobile) %> </span>
+            <% end %>
+        </div>               
+</div>
+            <%= render "partials/maps"%>     
+   
+<div class="row pt-5 pb-5">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+                 <h1 class="featurette-heading mb-3">Connect Us</h1>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 mb-5">
+            <p>
+                <% if contact.instagram %>   
+                    <%= fa_icon "instagram", style: "font-size: 1.5rem" %> <a href=<%= contact.instagram %> target="_blank" class="text-dark" ><%= contact.instagram %></a>
+                <% end %>
+            </p>  
+            <p>
+                <% if contact.facebook %>   
+                    <%= fa_icon "facebook", style: "font-size: 1.5rem" %> <a href=<%= contact.facebook %> target="_blank" class="text-dark" > <%= contact.facebook %> </a>
+                <% end %>
+            </p>             
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <% if contact.email %>
+                <p>
+                     <%= fa_icon "at", style: "font-size: 1.5rem" %>  <a href=<%= "mailto:#{contact.email}" %> class="text-dark"> <%= contact.email %></a>  
+                </p>  
+            <% end %>
+            <% if contact.website %>
+                <p>
+                     <%= fa_icon "globe", style: "font-size: 1.5rem" %> <a href=<% contact.website %>  target="_blank" class="text-dark"> <%= contact.website %></a>
+                </p>
+            <% end %>                      
+        </div>
+         <div class="col-sm-12 col-md-12 col-lg-12">
+                <% if user_signed_in? && current_user %>
+                    <%= link_to 'Show', contact, class: "btn btn-secondary" %>
+                    <%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-secondary" %>
+                    <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+                <% end %>
+        </div>
+</div>
+
+   
+   

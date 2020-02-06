@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :whies
+  resources :profiles
+  resources :contacts
+  resources :blogs
+  resources :abouts
   devise_for :users
   root to: "welcomes#index"
   resources :welcomes

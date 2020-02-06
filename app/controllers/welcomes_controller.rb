@@ -4,7 +4,9 @@ class WelcomesController < ApplicationController
   # GET /welcomes
   # GET /welcomes.json
   def index
-    @welcomes = Welcome.all
+    @welcome = Welcome.first
+    @contact = Contact.first
+    @whies = Why.all
   end
 
   # GET /welcomes/1

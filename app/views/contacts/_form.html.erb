@@ -1,0 +1,92 @@
+<%= form_with(model: contact, local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+        <% contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :city %>
+    <%= form.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :province %>
+    <%= form.text_field :province, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :postcode %>
+    <%= form.text_field :postcode, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tel %>
+    <%= form.text_field :tel, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :website %>
+    <%= form.text_field :website, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :facebook %>
+    <%= form.text_field :facebook, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instagram %>
+    <%= form.text_field :instagram, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :whatsapp %>
+    <%= form.text_field :whatsapp, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :line %>
+    <%= form.text_field :line, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.text_field :status, class: "form-control" %>
+  </div>
+
+  <div class="actions text-right">
+    <%= form.submit(@contact.new_record? ? "Create" : "Update" ,class: "btn btn-secondary") %>
+  </div>
+<% end %>

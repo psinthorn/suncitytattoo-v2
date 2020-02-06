@@ -1,0 +1,37 @@
+<%= form_with(model: why, local: true) do |form| %>
+  <% if why.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(why.errors.count, "error") %> prohibited this why from being saved:</h2>
+
+      <ul>
+        <% why.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :faicon %>
+    <%= form.text_field :faicon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

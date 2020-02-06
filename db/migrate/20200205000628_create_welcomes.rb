@@ -5,7 +5,7 @@ class CreateWelcomes < ActiveRecord::Migration[6.0]
       t.string :subtitle
       t.string :body
       t.string :subbody
-      t.string :status
+      t.string :status, default: false
       # t.references :user, null: false, foreign_key: true
 
       t.timestamps
