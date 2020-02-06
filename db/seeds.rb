@@ -57,7 +57,7 @@ puts "1 About seed data is created"
         postcode: " 84320",
         tel: "077",
         mobile: "084 626 0022",
-        email: "Email",
+        email: "suncitytattoo.samui@gmail.com",
         website: "https://www.suncitytattoo.com",
         facebook: "https://www.facebook.com/kukootattooartist",
         instagram: "https://www.instagram.com/suncitytattoosamui",

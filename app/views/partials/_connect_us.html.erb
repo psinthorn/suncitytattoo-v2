@@ -1,0 +1,37 @@
+<div class="row pt-5 pb-5 mx-auto">
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-4">
+                 <h1 class="featurette-heading text-left">Connect with us</h1>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <p >
+                 <% if contact.instagram %>   
+                            <%= fa_icon "instagram", style: "font-size: 1.5rem" %> <a href=<%= contact.instagram %>  class="text-dark" target="_blank" ><%= contact.instagram %></a>
+                    <% end %>
+            </p>  
+            <p >
+                 <% if contact.facebook %>   
+                            <%= fa_icon "facebook", style: "font-size: 1.5rem" %> <a href=<%= contact.facebook %>  class="text-dark" target="_blank" > <%= contact.facebook %> </a>
+                    <% end %>
+            </p>             
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <% if contact.email %>
+                <p >
+                     <%= fa_icon "at", style: "font-size: 1.5rem" %>  <a href="mailto:someone@yoursite.com" class="text-dark" > <%= contact.email %></a>  
+                </p>  
+            <% end %>
+            <% if contact.website %>
+                <p >
+                     <%= fa_icon "globe", style: "font-size: 1.5rem" %> <a href=<% contact.website %> target="_blank" class="text-dark"> <%= contact.website %></a>
+                </p>
+            <% end %>                      
+        </div>
+
+         <div class="col-sm-12 col-md-12 col-lg-12">
+                <% if logged_in?(:site_admin) %>
+                    <%= link_to 'Show', contact, class: "btn btn-secondary" %>
+                    <%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-secondary" %>
+                    <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+                <% end %>
+        </div>
+    </div>

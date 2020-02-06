@@ -1,0 +1,66 @@
+    <h1 class="featurette-heading text-center mb-5">The Artist</h1>
+
+    <% @profiles.each do |profile| %>
+        <div class="row mt-5">          
+                <div class="col-sm-12 col-md-4 col-lg-4 mx-auto" >
+                            <%# <%= image_tag "#{profile.main_image}", class: "img-fluid rounded-circle" %>
+                            <%# <%= image_tag "kukoo.png", class: "img-fluid rounded-circle" %> 
+                            <%# <h2 class="text-center "><%= profile.nick_name %>
+                </div>   
+                   
+                <div class="col-sm-12 col-md-8 col-lg-8 mx-auto" >
+                    <div class="card">   
+                        <div class="card-body pt-5 pb-5">
+                            <h2 class="text-center ">
+                                <%= profile.suffix%>
+                                <%= profile.first_name %>
+                                <%= profile.last_name %>
+                                (<%= profile.nick_name %>)
+                            </h2>
+                            <p class="lead">
+                                <%= profile.body %>
+                            </p>
+                            <div class="row mt-5">        
+                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                    <p>
+                                    <%= fa_icon "facebook", style: "font-size: 1.5rem" %> <a href=<%= profile.facebook %> class="text-dark" target="_blank" ><%= profile.facebook %></a>
+                                    </p>
+                                    <p>
+                                    <%= fa_icon "instagram", style: "font-size: 1.5rem" %> <a href=<%= profile.instagram %> class="text-dark" target="_blank" ><%= profile.instagram %></a>
+                                    </p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <p>
+                                    <%= fa_icon "whatsapp", style: "font-size: 1.5rem" %> <%= number_to_phone(profile.whatsapp) %>
+                                    </p>
+                                    <%# <p>
+                                    <%= fa_icon "line", style: "font-size: 1.5rem" %> 
+                                    <%# <%= profile.line_id %> 
+                                    <%# </p> %>
+                                    <p>
+                                    <%= fa_icon "phone", style: "font-size: 1.5rem" %> <%= number_to_phone(profile.mobile) %>
+                                    </p>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                  <p class="pt-2">
+                        <% if user_signed_in? && current_user %> 
+                            <%= link_to 'Edit', edit_profile_path(profile) , class: "btn btn-secondary" %>
+                            <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-secondary" %>
+                        <% end %>
+                    </p>
+                </div>
+        </div>
+                <% end %>
+
+        <%# <%= render "partials/artist_image_gallery"%> 
+        <%= render "partials/more-gallery" %> 
+        <%# <hr class="featurette-divider">  %>
+        
+        <%= render "partials/maps" %>
+
+
+<% if user_signed_in? %>
+<%= link_to 'New Profile', new_profile_path %>
+<% end %>

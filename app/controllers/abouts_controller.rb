@@ -4,7 +4,7 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   def index
-    @abouts = About.all
+    @about = About.first
   end
 
   # GET /abouts/1
