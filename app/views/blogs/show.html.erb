@@ -31,7 +31,10 @@
       <p class="lead">
           <%= @blog.body %>
       </p>
-
+      <p>
+      Share:
+      <%= social_share_button_tag(@blog.title) %>
+      </p>
       <p>
       <% if user_signed_in? && current_user == @blog.user  %>
         <%= link_to 'Back', blogs_path, class: "btn btn-secondary" %>

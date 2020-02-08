@@ -33,6 +33,7 @@ gem "font-awesome-rails"
 gem 'kaminari'
 gem 'f2_view_tool', '~> 0.1.0'
 gem 'mini_magick'
+gem 'social-share-button', '~> 1.2', '>= 1.2.1'
 
 
 group :development, :test do
